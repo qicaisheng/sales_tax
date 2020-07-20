@@ -17,14 +17,22 @@ public class Items {
         String itemsDescription = itemList.stream().map(Item::describe).collect(Collectors.joining("\n"));
         descriptionBuilder.append(itemsDescription);
         
-        BigDecimal totalTaxes = itemList.stream().map(Item::tax).reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal totalTaxes = totalTaxes();
         String taxesDescription = "\nSales Taxes: " + totalTaxes.toString();
         descriptionBuilder.append(taxesDescription);
         
-        BigDecimal totalPrices = itemList.stream().map(Item::totalPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal totalPrices = totalPrices();
         String totalDescription = "\nTotal: " + totalPrices.toString();
         descriptionBuilder.append(totalDescription);
         
         return descriptionBuilder.toString();
+    }
+
+    private BigDecimal totalPrices() {
+        return itemList.stream().map(Item::totalPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    private BigDecimal totalTaxes() {
+        return itemList.stream().map(Item::tax).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
