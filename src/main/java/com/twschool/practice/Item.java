@@ -24,7 +24,10 @@ public class Item {
     }
 
     public BigDecimal importedTax() {
-        BigDecimal localTax = unitPrice.multiply(new BigDecimal("0.05"));
+        BigDecimal localTax = BigDecimal.ZERO;
+        if (from == ItemFrom.IMPORTED) {
+            localTax = unitPrice.multiply(new BigDecimal("0.05"));
+        }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
 }
