@@ -42,4 +42,13 @@ public class ItemCategoryTest {
 
         Assert.assertTrue(isBookFoodAndMedicalCategory);
     }
+
+    @Test
+    public void should_know_MUSIC_CD_category_is_not_book_fond_and_medical_category() {
+        ItemCategory itemCategory = ItemCategory.MUSIC_CD;
+
+        boolean isBookFoodAndMedicalCategory = itemCategory.isBookFoodAndMedicalCategory();
+
+        Assert.assertFalse(isBookFoodAndMedicalCategory);
+    }
 }
