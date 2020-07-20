@@ -13,19 +13,10 @@ public class Items {
     }
 
     public String describe() {
-        StringBuilder descriptionBuilder = new StringBuilder();
         String itemsDescription = itemList.stream().map(Item::describe).collect(Collectors.joining("\n"));
-        descriptionBuilder.append(itemsDescription);
-        
-        BigDecimal totalTaxes = totalTaxes();
-        String taxesDescription = "\nSales Taxes: " + totalTaxes.toString();
-        descriptionBuilder.append(taxesDescription);
-        
-        BigDecimal totalPrices = totalPrices();
-        String totalDescription = "\nTotal: " + totalPrices.toString();
-        descriptionBuilder.append(totalDescription);
-        
-        return descriptionBuilder.toString();
+        String taxesDescription = "\nSales Taxes: " + totalTaxes().toString();
+        String totalDescription = "\nTotal: " + totalPrices().toString();
+        return itemsDescription + taxesDescription + totalDescription;
     }
 
     private BigDecimal totalPrices() {
