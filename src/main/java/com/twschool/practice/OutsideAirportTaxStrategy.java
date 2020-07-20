@@ -2,7 +2,7 @@ package com.twschool.practice;
 
 import java.math.BigDecimal;
 
-public class OutsideAirportTaxStrategy {
+public class OutsideAirportTaxStrategy extends TaxStrategy {
 
     private final ItemValue itemValue;
 
@@ -10,6 +10,7 @@ public class OutsideAirportTaxStrategy {
         this.itemValue = itemValue;
     }
 
+    @Override
     public BigDecimal localTax() {
         BigDecimal localTax = BigDecimal.ZERO;
         if (!itemValue.getCategory().isBookFoodAndMedicalCategory()) {
@@ -17,7 +18,8 @@ public class OutsideAirportTaxStrategy {
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
-
+    
+    @Override
     public BigDecimal importedTax() {
         BigDecimal localTax = BigDecimal.ZERO;
         if (itemValue.getFrom() == ItemFrom.IMPORTED) {
@@ -25,9 +27,5 @@ public class OutsideAirportTaxStrategy {
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
-
-    public BigDecimal tax() {
-        return importedTax().add(localTax());
-    }
-
+    
 }
