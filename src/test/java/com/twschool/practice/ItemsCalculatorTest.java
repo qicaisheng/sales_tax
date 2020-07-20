@@ -17,7 +17,7 @@ public class ItemsCalculatorTest {
 
     @Test
     public void should_calculate_tax_given_item_value_list_and_store_is_not_in_airport() {
-        ItemsCalculator itemsCalculator = new ItemsCalculator(itemsTestDataFactory.getItemValueList3(), new Store(false));
+        ItemsCalculator itemsCalculator = new ItemsCalculator(itemsTestDataFactory.getItemValueList3(), new Store(false), new Passport("123456789012345678"));
         
         String description = itemsCalculator.describe();
 

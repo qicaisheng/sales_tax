@@ -7,12 +7,7 @@ import java.util.stream.Collectors;
 public class ItemsCalculator {
     private final List<ItemValue> itemValueList;
     private final Store store;
-    private Passport passport;
-
-    public ItemsCalculator(List<ItemValue> itemValueList, Store store) {
-        this.itemValueList = itemValueList;
-        this.store = store;
-    }
+    private final Passport passport;
 
     public ItemsCalculator(List<ItemValue> itemValueList, Store store, Passport passport) {
         this.itemValueList = itemValueList;
