@@ -34,4 +34,8 @@ public class Item {
     public BigDecimal totalPrice() {
         return unitPrice.add(localTax()).add(importedTax()).multiply(BigDecimal.valueOf(amount));
     }
+
+    public String describe() {
+        return String.format("%d %s: %s", amount, category.toString(), totalPrice().toString());
+    }
 }

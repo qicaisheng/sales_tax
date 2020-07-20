@@ -88,5 +88,14 @@ public class ItemTest {
         Assert.assertEquals(new BigDecimal("16.49"), totalPrice);
     }
 
+    @Test
+    public void should_describe_given_local_item() {
+        Item item = new Item(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, new BigDecimal("14.99"));
+
+        String description = item.describe();
+
+        Assert.assertEquals("1 music CD: 16.49", description);
+    }
+
 
 }
