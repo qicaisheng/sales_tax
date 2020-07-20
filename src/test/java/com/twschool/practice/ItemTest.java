@@ -79,5 +79,14 @@ public class ItemTest {
         Assert.assertEquals(new BigDecimal("54.63"), totalPrice);
     }
 
+    @Test
+    public void should_get_total_price_given_local_item() {
+        Item item = new Item(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, new BigDecimal("14.99"));
+
+        BigDecimal totalPrice = item.totalPrice();
+
+        Assert.assertEquals(new BigDecimal("16.49"), totalPrice);
+    }
+
 
 }
