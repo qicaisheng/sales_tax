@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Item {
     private final ItemValue itemValue;
-    private TaxStrategy taxStrategy;
+    private final TaxStrategy taxStrategy;
 
     public Item(OutsideAirportTaxStrategy taxStrategy) {
         this.itemValue = taxStrategy.getItemValue();
