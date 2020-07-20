@@ -1,7 +1,7 @@
 package com.twschool.practice;
 
 public class Store {
-    private boolean inAirport;
+    private final boolean inAirport;
 
     public Store(boolean inAirport) {
         this.inAirport = inAirport;
