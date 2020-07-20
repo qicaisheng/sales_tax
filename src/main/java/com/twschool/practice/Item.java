@@ -36,6 +36,7 @@ public class Item {
     }
 
     public String describe() {
-        return String.format("%d %s: %s", amount, category.toString(), totalPrice().toString());
+        String itemFrom = from == ItemFrom.IMPORTED ? "imported " : ""; 
+        return String.format("%d %s%s: %s", amount, itemFrom, category.toString(), totalPrice().toString());
     }
 }

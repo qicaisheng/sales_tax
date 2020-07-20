@@ -97,5 +97,12 @@ public class ItemTest {
         Assert.assertEquals("1 music CD: 16.49", description);
     }
 
+    @Test
+    public void should_describe_given_imported_item() {
+        Item item = new Item(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.IMPORTED, 1, new BigDecimal("10.00"));
 
+        String description = item.describe();
+
+        Assert.assertEquals("1 imported box of chocolates: 10.50", description);
+    }
 }
