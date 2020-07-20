@@ -51,4 +51,13 @@ public class ItemCategoryTest {
 
         Assert.assertFalse(isBookFoodAndMedicalCategory);
     }
+
+    @Test
+    public void should_get_string_value_given_item_category() {
+        ItemCategory itemCategory = ItemCategory.MUSIC_CD;
+
+        String stringValue = itemCategory.toString();
+
+        Assert.assertEquals("music CD", stringValue);
+    }
 }
