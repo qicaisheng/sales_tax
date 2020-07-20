@@ -15,6 +15,10 @@ public class Item {
         this.taxStrategy = taxStrategy;
     }
 
+    public TaxStrategy getTaxStrategy() {
+        return taxStrategy;
+    }
+
     public BigDecimal localTax() {
         BigDecimal localTax = BigDecimal.ZERO;
         if (!itemValue.getCategory().isBookFoodAndMedicalCategory()) {

@@ -8,7 +8,7 @@ public class Items {
     private List<Item> itemList;
     
     public Items(List<ItemValue> itemValueList) {
-        this.itemList = itemValueList.stream().map(Item::new).collect(Collectors.toList());
+        this.itemList = itemValueList.stream().map(itemValue -> new Item(itemValue, new OutsideAirportTaxStrategy(itemValue))).collect(Collectors.toList());
     }
 
     public String describe() {
@@ -23,6 +23,6 @@ public class Items {
     }
 
     private BigDecimal totalTaxes() {
-        return itemList.stream().map(Item::tax).reduce(BigDecimal.ZERO, BigDecimal::add);
+        return itemList.stream().map(item -> item.getTaxStrategy().tax()).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
