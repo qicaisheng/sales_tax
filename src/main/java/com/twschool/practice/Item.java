@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 public class Item {
     private final ItemValue itemValue;
 
-    public Item(ItemCategory category, ItemFrom from, int amount, BigDecimal unitPrice) {
-        this.itemValue = new ItemValue(category, from, amount, unitPrice);
+    public Item(ItemValue itemValue) {
+        this.itemValue = itemValue;
     }
 
     public BigDecimal localTax() {

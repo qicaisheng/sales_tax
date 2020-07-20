@@ -9,7 +9,8 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_local_book_item() {
-        Item item = new Item(ItemCategory.BOOK, ItemFrom.LOCAL, 1, new BigDecimal("12.49"));
+        final BigDecimal unitPrice = new BigDecimal("12.49");
+        Item item = new Item(new ItemValue(ItemCategory.BOOK, ItemFrom.LOCAL, 1, unitPrice));
 
         BigDecimal tax = item.localTax();
 
@@ -18,7 +19,8 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_local_music_CD_item() {
-        Item item = new Item(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, new BigDecimal("14.99"));
+        final BigDecimal unitPrice = new BigDecimal("14.99");
+        Item item = new Item(new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice));
 
         BigDecimal tax = item.localTax();
 
@@ -27,7 +29,8 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_local_chocolate_bar_item() {
-        Item item = new Item(ItemCategory.CHOCOLATE_BAR, ItemFrom.LOCAL, 1, new BigDecimal("0.85"));
+        final BigDecimal unitPrice = new BigDecimal("0.85");
+        Item item = new Item(new ItemValue(ItemCategory.CHOCOLATE_BAR, ItemFrom.LOCAL, 1, unitPrice));
 
         BigDecimal tax = item.localTax();
 
@@ -36,7 +39,8 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_box_of_chocolates_bar_item() {
-        Item item = new Item(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.LOCAL, 1, new BigDecimal("0.85"));
+        final BigDecimal unitPrice = new BigDecimal("0.85");
+        Item item = new Item(new ItemValue(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.LOCAL, 1, unitPrice));
 
         BigDecimal tax = item.localTax();
 
@@ -45,7 +49,8 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_packet_of_headache_pills_item() {
-        Item item = new Item(ItemCategory.PACKET_OF_HEADACHE_PILLS, ItemFrom.LOCAL, 1, new BigDecimal("9.75"));
+        final BigDecimal unitPrice = new BigDecimal("9.75");
+        Item item = new Item(new ItemValue(ItemCategory.PACKET_OF_HEADACHE_PILLS, ItemFrom.LOCAL, 1, unitPrice));
 
         BigDecimal tax = item.localTax();
 
@@ -54,7 +59,8 @@ public class ItemTest {
 
     @Test
     public void should_calculate_imported_tax_given_imported_bottle_of_perfume_item() {
-        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, new BigDecimal("47.50"));
+        final BigDecimal unitPrice = new BigDecimal("47.50");
+        Item item = new Item(new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, unitPrice));
 
         BigDecimal tax = item.importedTax();
 
@@ -63,7 +69,8 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_imported_bottle_of_perfume_item() {
-        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, new BigDecimal("47.50"));
+        final BigDecimal unitPrice = new BigDecimal("47.50");
+        Item item = new Item(new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, unitPrice));
 
         BigDecimal tax = item.tax();
 
@@ -72,7 +79,8 @@ public class ItemTest {
     
     @Test
     public void should_calculate_imported_tax_given_local_bottle_of_perfume_item() {
-        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.LOCAL, 1, new BigDecimal("47.50"));
+        final BigDecimal unitPrice = new BigDecimal("47.50");
+        Item item = new Item(new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.LOCAL, 1, unitPrice));
 
         BigDecimal tax = item.importedTax();
 
@@ -81,7 +89,8 @@ public class ItemTest {
 
     @Test
     public void should_get_total_price_given_imported_item() {
-        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, new BigDecimal("47.50"));
+        final BigDecimal unitPrice = new BigDecimal("47.50");
+        Item item = new Item(new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, unitPrice));
 
         BigDecimal totalPrice = item.totalPrice();
 
@@ -90,7 +99,8 @@ public class ItemTest {
 
     @Test
     public void should_get_total_price_given_local_item() {
-        Item item = new Item(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, new BigDecimal("14.99"));
+        final BigDecimal unitPrice = new BigDecimal("14.99");
+        Item item = new Item(new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice));
 
         BigDecimal totalPrice = item.totalPrice();
 
@@ -99,7 +109,8 @@ public class ItemTest {
 
     @Test
     public void should_describe_given_local_item() {
-        Item item = new Item(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, new BigDecimal("14.99"));
+        final BigDecimal unitPrice = new BigDecimal("14.99");
+        Item item = new Item(new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice));
 
         String description = item.describe();
 
@@ -108,7 +119,8 @@ public class ItemTest {
 
     @Test
     public void should_describe_given_imported_item() {
-        Item item = new Item(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.IMPORTED, 1, new BigDecimal("10.00"));
+        final BigDecimal unitPrice = new BigDecimal("10.00");
+        Item item = new Item(new ItemValue(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.IMPORTED, 1, unitPrice));
 
         String description = item.describe();
 
