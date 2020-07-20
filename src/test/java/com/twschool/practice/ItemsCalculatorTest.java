@@ -43,6 +43,20 @@ public class ItemsCalculatorTest {
                 "Total: 74.79", description);
     }
 
+    @Test
+    public void should_calculate_tax_given_item_value_list_and_store_is_in_airport_and_local_passport() {
+        ItemsCalculator itemsCalculator = new ItemsCalculator(itemsTestDataFactory.getItemValueList3(), new Store(true), new Passport("123456789012345"));
+
+        String description = itemsCalculator.describe();
+
+        Assert.assertEquals("1 imported bottle of perfume: 32.19\n" +
+                "1 bottle of perfume: 20.89\n" +
+                "1 packet of headache pills: 9.75\n" +
+                "1 imported box of chocolates: 11.82\n" +
+                "Sales Taxes: 6.67\n" +
+                "Total: 74.65", description);
+    }
+
 
     @Test
     public void should_calculate_all_items_tax_1() {
