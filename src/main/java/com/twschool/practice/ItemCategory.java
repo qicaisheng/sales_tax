@@ -1,7 +1,12 @@
 package com.twschool.practice;
 
 public enum ItemCategory {
-    BOOK("book", "Books"), MUSIC_CD("music CD", "Audio-Visual"), CHOCOLATE_BAR("chocolate bar", "Food"), BOX_OF_CHOCOLATE_BAR("box of chocolates", "Food"), BOTTLE_OF_PERFUME("bottle of perfume", "Makeup"), PACKET_OF_HEADACHE_PILLS("packet of headache pills", "Medical");
+    BOOK("book", "Books"), 
+    MUSIC_CD("music CD", "Audio-Visual"), 
+    CHOCOLATE_BAR("chocolate bar", "Food"), 
+    BOX_OF_CHOCOLATE_BAR("box of chocolates", "Food"), 
+    BOTTLE_OF_PERFUME("bottle of perfume", "Makeup"), 
+    PACKET_OF_HEADACHE_PILLS("packet of headache pills", "Medical");
 
     private String name;
     private String bigCategory;
