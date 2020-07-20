@@ -1,6 +1,8 @@
 package com.twschool.practice;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ItemsCalculator {
     private final List<ItemValue> itemValueList;
@@ -19,9 +21,27 @@ public class ItemsCalculator {
     }
 
     public String describe() {
+        List<Item> itemList;
         if (store.isInAirport() && passport.isForeignPassport()) {
-            return new Items(itemValueList, true).describe();
+            itemList = itemValueList.stream().map(itemValue -> new Item(new AirportForeignPassportTaxStrategy(itemValue))).collect(Collectors.toList());
+        } else {
+            itemList = itemValueList.stream().map(itemValue -> new Item(new OutsideAirportTaxStrategy(itemValue))).collect(Collectors.toList());
         }
-        return new Items(itemValueList).describe();
+        return describe(itemList);
+    }
+    
+    public String describe(List<Item> itemList) {
+        String itemsDescription = itemList.stream().map(Item::describe).collect(Collectors.joining("\n"));
+        String taxesDescription = "\nSales Taxes: " + totalTaxes(itemList).toString();
+        String totalDescription = "\nTotal: " + totalPrices(itemList).toString();
+        return itemsDescription + taxesDescription + totalDescription;
+    }
+
+    private BigDecimal totalPrices(List<Item> itemList) {
+        return itemList.stream().map(Item::totalPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    private BigDecimal totalTaxes(List<Item> itemList) {
+        return itemList.stream().map(item -> item.getTaxStrategy().tax()).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
