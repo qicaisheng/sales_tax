@@ -3,6 +3,13 @@ package com.twschool.practice;
 import java.math.BigDecimal;
 
 public abstract class TaxStrategy {
+
+    private final ItemValue itemValue;
+
+    public TaxStrategy(ItemValue itemValue) {
+        this.itemValue = itemValue;
+    }
+
     public abstract BigDecimal localTax();
 
     public abstract BigDecimal importedTax();
@@ -11,4 +18,7 @@ public abstract class TaxStrategy {
         return importedTax().add(localTax());
     }
 
+    public ItemValue getItemValue() {
+        return itemValue;
+    }
 }

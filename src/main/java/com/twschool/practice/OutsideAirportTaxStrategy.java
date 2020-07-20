@@ -4,17 +4,15 @@ import java.math.BigDecimal;
 
 public class OutsideAirportTaxStrategy extends TaxStrategy {
 
-    private final ItemValue itemValue;
-
     public OutsideAirportTaxStrategy(ItemValue itemValue) {
-        this.itemValue = itemValue;
+        super(itemValue);
     }
 
     @Override
     public BigDecimal localTax() {
         BigDecimal localTax = BigDecimal.ZERO;
-        if (!itemValue.getCategory().isBookFoodAndMedicalCategory()) {
-            localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.10")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
+        if (!getItemValue().getCategory().isBookFoodAndMedicalCategory()) {
+            localTax = getItemValue().getUnitPrice().multiply(new BigDecimal("0.10")).multiply(BigDecimal.valueOf(getItemValue().getAmount()));
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
@@ -22,8 +20,8 @@ public class OutsideAirportTaxStrategy extends TaxStrategy {
     @Override
     public BigDecimal importedTax() {
         BigDecimal localTax = BigDecimal.ZERO;
-        if (itemValue.getFrom() == ItemFrom.IMPORTED) {
-            localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
+        if (getItemValue().getFrom() == ItemFrom.IMPORTED) {
+            localTax = getItemValue().getUnitPrice().multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(getItemValue().getAmount()));
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
