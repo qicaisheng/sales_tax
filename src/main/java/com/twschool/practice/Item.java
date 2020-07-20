@@ -16,9 +16,10 @@ public class Item {
     }
 
     public BigDecimal localTax() {
-        if (category.equals("BOOK")) {
-            return BigDecimal.ZERO.setScale(2, BigDecimal.ROUND_UP);
+        BigDecimal localTax = BigDecimal.ZERO;
+        if (!category.equals("BOOK")) {
+            localTax =  unitPrice.multiply(new BigDecimal("0.10"));
         }
-        return unitPrice.multiply(new BigDecimal("0.10")).setScale(2, BigDecimal.ROUND_UP); 
+        return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
 }
