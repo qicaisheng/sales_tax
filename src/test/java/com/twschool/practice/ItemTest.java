@@ -9,7 +9,7 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_local_book_item() {
-        Item item = new Item("BOOK", "LOCAL", 1, new BigDecimal("12.49"));
+        Item item = new Item(ItemCategory.BOOK, ItemFrom.LOCAL, 1, new BigDecimal("12.49"));
 
         BigDecimal tax = item.localTax();
 
@@ -18,7 +18,7 @@ public class ItemTest {
 
     @Test
     public void should_calculate_tax_given_local_music_CD_item() {
-        Item item = new Item("MUSIC_CD", "LOCAL", 1, new BigDecimal("14.99"));
+        Item item = new Item(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, new BigDecimal("14.99"));
 
         BigDecimal tax = item.localTax();
 
