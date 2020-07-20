@@ -30,4 +30,8 @@ public class Item {
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
+
+    public BigDecimal totalPrice() {
+        return unitPrice.add(localTax()).add(importedTax()).multiply(BigDecimal.valueOf(amount));
+    }
 }

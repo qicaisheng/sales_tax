@@ -70,5 +70,14 @@ public class ItemTest {
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
 
+    @Test
+    public void should_get_total_price_given_imported_item() {
+        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, new BigDecimal("47.50"));
+
+        BigDecimal totalPrice = item.totalPrice();
+
+        Assert.assertEquals(new BigDecimal("54.63"), totalPrice);
+    }
+
 
 }
