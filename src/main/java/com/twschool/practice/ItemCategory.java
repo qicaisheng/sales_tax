@@ -8,8 +8,8 @@ public enum ItemCategory {
     BOTTLE_OF_PERFUME("bottle of perfume", "Makeup"), 
     PACKET_OF_HEADACHE_PILLS("packet of headache pills", "Medical");
 
-    private String name;
-    private String bigCategory;
+    private final String name;
+    private final String bigCategory;
 
     ItemCategory(String name, String bigCategory) {
         this.name = name;
