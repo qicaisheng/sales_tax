@@ -44,12 +44,12 @@ public class ItemTest {
     }
 
     @Test
-    public void should_calculate_tax_given_bottle_of_perfume_item() {
-        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.LOCAL, 1, new BigDecimal("47.50"));
+    public void should_calculate_tax_given_packet_of_headache_pills_item() {
+        Item item = new Item(ItemCategory.PACKET_OF_HEADACHE_PILLS, ItemFrom.LOCAL, 1, new BigDecimal("9.75"));
 
         BigDecimal tax = item.localTax();
 
-        Assert.assertEquals(new BigDecimal("4.75"), tax);
+        Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
 
 }
