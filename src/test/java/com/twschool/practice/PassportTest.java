@@ -13,4 +13,13 @@ public class PassportTest {
 
         Assert.assertTrue(isForeignPassport);
     }
+
+    @Test
+    public void should_be_foreign_passport_given_passport_with_15_numbers() {
+        Passport passport = new Passport("123456789012345");
+
+        boolean isForeignPassport = passport.isForeignPassport();
+
+        Assert.assertFalse(isForeignPassport);
+    }
 }
