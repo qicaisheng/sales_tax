@@ -1,5 +1,5 @@
 package com.twschool.practice;
 
 public enum ItemFrom {
-    LOCAL;
+    LOCAL, IMPORTED;
 }

@@ -18,8 +18,13 @@ public class Item {
     public BigDecimal localTax() {
         BigDecimal localTax = BigDecimal.ZERO;
         if (!category.isBookFoodAndMedicalCategory()) {
-            localTax =  unitPrice.multiply(new BigDecimal("0.10"));
+            localTax = unitPrice.multiply(new BigDecimal("0.10"));
         }
+        return localTax.setScale(2, BigDecimal.ROUND_UP);
+    }
+
+    public BigDecimal importedTax() {
+        BigDecimal localTax = unitPrice.multiply(new BigDecimal("0.05"));
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
 }

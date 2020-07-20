@@ -52,4 +52,14 @@ public class ItemTest {
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
 
+    @Test
+    public void should_calculate_imported_tax_given_imported_bottle_of_perfume_item() {
+        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, new BigDecimal("47.50"));
+
+        BigDecimal tax = item.importedTax();
+
+        Assert.assertEquals(new BigDecimal("2.38"), tax);
+    }
+
+
 }
