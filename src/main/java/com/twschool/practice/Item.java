@@ -32,7 +32,8 @@ public class Item {
     }
 
     public BigDecimal totalPrice() {
-        return unitPrice.add(localTax()).add(importedTax()).multiply(BigDecimal.valueOf(amount));
+        BigDecimal price = unitPrice.multiply(BigDecimal.valueOf(amount));
+        return price.add(tax());
     }
 
     public String describe() {
