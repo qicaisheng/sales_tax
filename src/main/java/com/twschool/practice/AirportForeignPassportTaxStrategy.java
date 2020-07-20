@@ -2,11 +2,11 @@ package com.twschool.practice;
 
 import java.math.BigDecimal;
 
-public class AirportForeignPassportTexStrategy {
+public class AirportForeignPassportTaxStrategy {
 
     private final ItemValue itemValue;
 
-    public AirportForeignPassportTexStrategy(ItemValue itemValue) {
+    public AirportForeignPassportTaxStrategy(ItemValue itemValue) {
         this.itemValue = itemValue;
     }
 
