@@ -17,7 +17,7 @@ public class ItemsTest {
 
     @Test
     public void should_calculate_all_items_tax_1() {
-        List<Item> itemList = itemsTestDataFactory.getItemList1();
+        List<ItemValue> itemList = itemsTestDataFactory.getItemValueList1();
         Items items = new Items(itemList);
 
         Assert.assertEquals("1 book: 12.49\n" +
@@ -29,7 +29,7 @@ public class ItemsTest {
 
     @Test
     public void should_calculate_all_items_tax_2() {
-        List<Item> itemList = itemsTestDataFactory.getItemList2();
+        List<ItemValue> itemList = itemsTestDataFactory.getItemValueList2();
         Items items = new Items(itemList);
 
         Assert.assertEquals("1 imported box of chocolates: 10.50\n" +
@@ -40,7 +40,7 @@ public class ItemsTest {
 
     @Test
     public void should_calculate_all_items_tax_3() {
-        List<Item> itemList = itemsTestDataFactory.getItemList3();
+        List<ItemValue> itemList = itemsTestDataFactory.getItemValueList3();
         Items items = new Items(itemList);
 
         Assert.assertEquals("1 imported bottle of perfume: 32.19\n" +

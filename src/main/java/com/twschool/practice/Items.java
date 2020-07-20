@@ -6,10 +6,9 @@ import java.util.stream.Collectors;
 
 public class Items {
     private List<Item> itemList;
-
-    public Items(List<Item> itemList) {
-
-        this.itemList = itemList;
+    
+    public Items(List<ItemValue> itemValueList) {
+        this.itemList = itemValueList.stream().map(Item::new).collect(Collectors.toList());
     }
 
     public String describe() {
