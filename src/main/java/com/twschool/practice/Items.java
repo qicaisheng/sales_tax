@@ -8,7 +8,7 @@ public class Items {
     private List<Item> itemList;
     
     public Items(List<ItemValue> itemValueList) {
-        this.itemList = itemValueList.stream().map(itemValue -> new Item(itemValue, new OutsideAirportTaxStrategy(itemValue))).collect(Collectors.toList());
+        this.itemList = itemValueList.stream().map(itemValue -> new Item(new OutsideAirportTaxStrategy(itemValue))).collect(Collectors.toList());
     }
 
     public String describe() {

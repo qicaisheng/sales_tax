@@ -6,8 +6,8 @@ public class Item {
     private final ItemValue itemValue;
     private TaxStrategy taxStrategy;
 
-    public Item(ItemValue itemValue, OutsideAirportTaxStrategy taxStrategy) {
-        this.itemValue = itemValue;
+    public Item(OutsideAirportTaxStrategy taxStrategy) {
+        this.itemValue = taxStrategy.getItemValue();
         this.taxStrategy = taxStrategy;
     }
 
