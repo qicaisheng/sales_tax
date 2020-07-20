@@ -11,6 +11,10 @@ public class Items {
         this.itemList = itemValueList.stream().map(itemValue -> new Item(new OutsideAirportTaxStrategy(itemValue))).collect(Collectors.toList());
     }
 
+    public Items(List<ItemValue> itemValueList, boolean AirportForeignPassportTax) {
+        this.itemList = itemValueList.stream().map(itemValue -> new Item(new AirportForeignPassportTaxStrategy(itemValue))).collect(Collectors.toList());
+    }
+
     public String describe() {
         String itemsDescription = itemList.stream().map(Item::describe).collect(Collectors.joining("\n"));
         String taxesDescription = "\nSales Taxes: " + totalTaxes().toString();
