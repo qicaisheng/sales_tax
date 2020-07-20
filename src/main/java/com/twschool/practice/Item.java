@@ -4,9 +4,15 @@ import java.math.BigDecimal;
 
 public class Item {
     private final ItemValue itemValue;
+    private TaxStrategy taxStrategy;
 
     public Item(ItemValue itemValue) {
         this.itemValue = itemValue;
+    }
+
+    public Item(ItemValue itemValue, OutsideAirportTaxStrategy taxStrategy) {
+        this.itemValue = itemValue;
+        this.taxStrategy = taxStrategy;
     }
 
     public BigDecimal localTax() {
@@ -27,7 +33,7 @@ public class Item {
 
     public BigDecimal totalPrice() {
         BigDecimal price = itemValue.getUnitPrice().multiply(BigDecimal.valueOf(itemValue.getAmount()));
-        return price.add(tax());
+        return price.add(taxStrategy.tax());
     }
 
     public String describe() {

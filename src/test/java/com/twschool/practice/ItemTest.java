@@ -90,7 +90,8 @@ public class ItemTest {
     @Test
     public void should_get_total_price_given_imported_item() {
         final BigDecimal unitPrice = new BigDecimal("47.50");
-        Item item = new Item(new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, unitPrice));
+        ItemValue itemValue = new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, unitPrice);
+        Item item = new Item(itemValue, new OutsideAirportTaxStrategy(itemValue));
 
         BigDecimal totalPrice = item.totalPrice();
 
@@ -100,7 +101,8 @@ public class ItemTest {
     @Test
     public void should_get_total_price_given_local_item() {
         final BigDecimal unitPrice = new BigDecimal("14.99");
-        Item item = new Item(new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice));
+        ItemValue itemValue = new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice);
+        Item item = new Item(itemValue, new OutsideAirportTaxStrategy(itemValue));
 
         BigDecimal totalPrice = item.totalPrice();
 
@@ -110,7 +112,8 @@ public class ItemTest {
     @Test
     public void should_describe_given_local_item() {
         final BigDecimal unitPrice = new BigDecimal("14.99");
-        Item item = new Item(new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice));
+        ItemValue itemValue = new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice);
+        Item item = new Item(itemValue, new OutsideAirportTaxStrategy(itemValue));
 
         String description = item.describe();
 
@@ -120,7 +123,8 @@ public class ItemTest {
     @Test
     public void should_describe_given_imported_item() {
         final BigDecimal unitPrice = new BigDecimal("10.00");
-        Item item = new Item(new ItemValue(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.IMPORTED, 1, unitPrice));
+        ItemValue itemValue = new ItemValue(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.IMPORTED, 1, unitPrice);
+        Item item = new Item(itemValue, new OutsideAirportTaxStrategy(itemValue));
 
         String description = item.describe();
 
