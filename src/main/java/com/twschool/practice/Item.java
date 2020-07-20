@@ -3,42 +3,36 @@ package com.twschool.practice;
 import java.math.BigDecimal;
 
 public class Item {
-    private final ItemCategory category;
-    private final ItemFrom from;
-    private final int amount;
-    private final BigDecimal unitPrice;
+    private final ItemValue itemValue;
 
     public Item(ItemCategory category, ItemFrom from, int amount, BigDecimal unitPrice) {
-        this.category = category;
-        this.from = from;
-        this.amount = amount;
-        this.unitPrice = unitPrice;
+        this.itemValue = new ItemValue(category, from, amount, unitPrice);
     }
 
     public BigDecimal localTax() {
         BigDecimal localTax = BigDecimal.ZERO;
-        if (!category.isBookFoodAndMedicalCategory()) {
-            localTax = unitPrice.multiply(new BigDecimal("0.10")).multiply(BigDecimal.valueOf(amount));
+        if (!itemValue.getCategory().isBookFoodAndMedicalCategory()) {
+            localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.10")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
 
     public BigDecimal importedTax() {
         BigDecimal localTax = BigDecimal.ZERO;
-        if (from == ItemFrom.IMPORTED) {
-            localTax = unitPrice.multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(amount));
+        if (itemValue.getFrom() == ItemFrom.IMPORTED) {
+            localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
 
     public BigDecimal totalPrice() {
-        BigDecimal price = unitPrice.multiply(BigDecimal.valueOf(amount));
+        BigDecimal price = itemValue.getUnitPrice().multiply(BigDecimal.valueOf(itemValue.getAmount()));
         return price.add(tax());
     }
 
     public String describe() {
-        String itemFrom = from == ItemFrom.IMPORTED ? "imported " : ""; 
-        return String.format("%d %s%s: %s", amount, itemFrom, category.toString(), totalPrice().toString());
+        String itemFrom = itemValue.getFrom() == ItemFrom.IMPORTED ? "imported " : ""; 
+        return String.format("%d %s%s: %s", itemValue.getAmount(), itemFrom, itemValue.getCategory().toString(), totalPrice().toString());
     }
 
     public BigDecimal tax() {
