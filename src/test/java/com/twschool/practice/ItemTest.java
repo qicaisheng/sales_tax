@@ -62,6 +62,15 @@ public class ItemTest {
     }
 
     @Test
+    public void should_calculate_tax_given_imported_bottle_of_perfume_item() {
+        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, new BigDecimal("47.50"));
+
+        BigDecimal tax = item.tax();
+
+        Assert.assertEquals(new BigDecimal("7.13"), tax);
+    }
+    
+    @Test
     public void should_calculate_imported_tax_given_local_bottle_of_perfume_item() {
         Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.LOCAL, 1, new BigDecimal("47.50"));
 
