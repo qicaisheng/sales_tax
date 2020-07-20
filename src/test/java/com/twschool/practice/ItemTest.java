@@ -33,4 +33,23 @@ public class ItemTest {
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
+
+    @Test
+    public void should_calculate_tax_given_box_of_chocolates_bar_item() {
+        Item item = new Item(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.LOCAL, 1, new BigDecimal("0.85"));
+
+        BigDecimal tax = item.localTax();
+
+        Assert.assertEquals(new BigDecimal("0.00"), tax);
+    }
+
+    @Test
+    public void should_calculate_tax_given_bottle_of_perfume_item() {
+        Item item = new Item(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.LOCAL, 1, new BigDecimal("47.50"));
+
+        BigDecimal tax = item.localTax();
+
+        Assert.assertEquals(new BigDecimal("4.75"), tax);
+    }
+
 }

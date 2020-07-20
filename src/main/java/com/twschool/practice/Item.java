@@ -17,7 +17,7 @@ public class Item {
 
     public BigDecimal localTax() {
         BigDecimal localTax = BigDecimal.ZERO;
-        if (category != ItemCategory.BOOK && category != ItemCategory.CHOCOLATE_BAR) {
+        if (category != ItemCategory.BOOK && category != ItemCategory.CHOCOLATE_BAR && category != ItemCategory.BOX_OF_CHOCOLATE_BAR) {
             localTax =  unitPrice.multiply(new BigDecimal("0.10"));
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
