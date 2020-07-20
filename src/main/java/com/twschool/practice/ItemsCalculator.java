@@ -17,7 +17,8 @@ public class ItemsCalculator {
 
     public String describe() {
         List<Item> itemList;
-        if (store.isInAirport() && passport.isForeignPassport()) {
+        boolean useAirportForeignPassportTaxStrategy = store.isInAirport() && passport.isForeignPassport();
+        if (useAirportForeignPassportTaxStrategy) {
             itemList = itemValueList.stream().map(itemValue -> new Item(new AirportForeignPassportTaxStrategy(itemValue))).collect(Collectors.toList());
         } else {
             itemList = itemValueList.stream().map(itemValue -> new Item(new OutsideAirportTaxStrategy(itemValue))).collect(Collectors.toList());
