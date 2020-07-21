@@ -3,12 +3,9 @@ package com.twschool.practice;
 import java.math.BigDecimal;
 
 public class OutsideAirportTaxStrategy extends TaxStrategy {
-    
-    private ItemValue itemValue;
 
     public OutsideAirportTaxStrategy(ItemValue itemValue) {
         super(itemValue);
-        this.itemValue = itemValue;
     }
 
     @Override
