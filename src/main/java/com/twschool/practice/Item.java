@@ -11,21 +11,13 @@ public class Item {
         this.taxStrategy = taxStrategy;
     }
 
-    public TaxStrategy getTaxStrategy() {
-        return taxStrategy;
-    }
-
-    public ItemValue getItemValue() {
-        return itemValue;
-    }
-
     public BigDecimal totalPrice() {
         BigDecimal price = itemValue.getUnitPrice().multiply(BigDecimal.valueOf(itemValue.getAmount()));
         return price.add(tax());
     }
 
     public BigDecimal tax() {
-        return taxStrategy.tax(getItemValue());
+        return taxStrategy.tax(itemValue);
     }
 
     public String describe() {
