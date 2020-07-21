@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public abstract class TaxStrategy {
 
-    public TaxStrategy(ItemValue itemValue) {
+    public TaxStrategy() {
     }
 
     public abstract BigDecimal localTax(ItemValue itemValue);

@@ -10,7 +10,7 @@ public class AirportForeignPassportTaxStrategyTest {
     @Test
     public void should_calculate_local_tax_given_items() {
         ItemValue itemValue = new ItemValue(ItemCategory.BOOK, ItemFrom.IMPORTED, 1, new BigDecimal("12.49"));
-        AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy(itemValue);
+        AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy();
         
         BigDecimal tax = airportForeignPassportTaxStrategy.localTax(itemValue);
 
@@ -20,7 +20,7 @@ public class AirportForeignPassportTaxStrategyTest {
     @Test
     public void should_calculate_imported_tax_given_items() {
         ItemValue itemValue = new ItemValue(ItemCategory.BOOK, ItemFrom.IMPORTED, 1, new BigDecimal("12.49"));
-        AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy(itemValue);
+        AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy();
 
         BigDecimal tax = airportForeignPassportTaxStrategy.importedTax(itemValue);
 
@@ -30,9 +30,9 @@ public class AirportForeignPassportTaxStrategyTest {
     @Test
     public void should_calculate_tax_given_items() {
         ItemValue itemValue = new ItemValue(ItemCategory.BOOK, ItemFrom.IMPORTED, 1, new BigDecimal("12.49"));
-        AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy(itemValue);
+        AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy();
 
-        BigDecimal tax = airportForeignPassportTaxStrategy.tax(airportForeignPassportTaxStrategy.getItemValue());
+        BigDecimal tax = airportForeignPassportTaxStrategy.tax(itemValue);
 
         Assert.assertEquals(new BigDecimal("1.25"), tax);
     }

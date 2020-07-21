@@ -20,12 +20,12 @@ public class ItemsCalculator {
         boolean useAirportForeignPassportTaxStrategy = store.isInAirport() && passport.isForeignPassport();
         if (useAirportForeignPassportTaxStrategy) {
             itemList = itemValueList.stream().map(itemValue -> {
-                final AirportForeignPassportTaxStrategy taxStrategy = new AirportForeignPassportTaxStrategy(itemValue);
+                final AirportForeignPassportTaxStrategy taxStrategy = new AirportForeignPassportTaxStrategy();
                 return new Item(taxStrategy, itemValue);
             }).collect(Collectors.toList());
         } else {
             itemList = itemValueList.stream().map(itemValue -> {
-                final OutsideAirportTaxStrategy taxStrategy = new OutsideAirportTaxStrategy(itemValue);
+                final OutsideAirportTaxStrategy taxStrategy = new OutsideAirportTaxStrategy();
                 return new Item(taxStrategy, itemValue);
             }).collect(Collectors.toList());
         }

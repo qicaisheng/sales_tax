@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class AirportForeignPassportTaxStrategy extends TaxStrategy {
 
-    public AirportForeignPassportTaxStrategy(ItemValue itemValue) {
-        super(itemValue);
+    public AirportForeignPassportTaxStrategy() {
+        super();
     }
 
     @Override
