@@ -20,7 +20,7 @@ public abstract class TaxStrategy {
         return getTaxStrategies().stream().filter(taxStrategy -> taxStrategy.match(store, passport)).findFirst().orElse(new OutsideAirportTaxStrategy());
     }
 
-    public static List<TaxStrategy> getTaxStrategies() {
+    private static List<TaxStrategy> getTaxStrategies() {
         return Arrays.asList(new AirportForeignPassportTaxStrategy(), new OutsideAirportTaxStrategy(), new AirportLocalPassportTaxStrategy());
     }
 }
