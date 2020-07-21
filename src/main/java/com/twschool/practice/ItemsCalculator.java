@@ -18,18 +18,22 @@ public class ItemsCalculator {
     public String describe() {
         List<Item> itemList;
         boolean useAirportForeignPassportTaxStrategy = store.isInAirport() && passport.isForeignPassport();
+        TaxStrategy taxStrategy1;
         if (useAirportForeignPassportTaxStrategy) {
+            taxStrategy1 = new AirportForeignPassportTaxStrategy();
             itemList = itemValueList.stream().map(itemValue -> {
                 final AirportForeignPassportTaxStrategy taxStrategy = new AirportForeignPassportTaxStrategy();
                 return new Item(taxStrategy, itemValue);
             }).collect(Collectors.toList());
         } else {
+            taxStrategy1 = new OutsideAirportTaxStrategy();
             itemList = itemValueList.stream().map(itemValue -> {
                 final OutsideAirportTaxStrategy taxStrategy = new OutsideAirportTaxStrategy();
                 return new Item(taxStrategy, itemValue);
             }).collect(Collectors.toList());
         }
-        return describe(itemList);
+        List<Item> itemList1 = itemValueList.stream().map(itemValue -> new Item(taxStrategy1, itemValue)).collect(Collectors.toList());
+        return describe(itemList1);
     }
     
     public String describe(List<Item> itemList) {
