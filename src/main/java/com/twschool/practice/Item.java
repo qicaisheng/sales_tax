@@ -14,10 +14,14 @@ public class Item {
     public TaxStrategy getTaxStrategy() {
         return taxStrategy;
     }
-    
+
+    public ItemValue getItemValue() {
+        return itemValue;
+    }
+
     public BigDecimal totalPrice() {
         BigDecimal price = itemValue.getUnitPrice().multiply(BigDecimal.valueOf(itemValue.getAmount()));
-        return price.add(taxStrategy.tax(taxStrategy.getItemValue()));
+        return price.add(taxStrategy.tax(getItemValue()));
     }
 
     public String describe() {

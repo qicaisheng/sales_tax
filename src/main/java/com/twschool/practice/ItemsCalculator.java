@@ -21,12 +21,12 @@ public class ItemsCalculator {
         if (useAirportForeignPassportTaxStrategy) {
             itemList = itemValueList.stream().map(itemValue -> {
                 final AirportForeignPassportTaxStrategy taxStrategy = new AirportForeignPassportTaxStrategy(itemValue);
-                return new Item(taxStrategy, taxStrategy.getItemValue());
+                return new Item(taxStrategy, itemValue);
             }).collect(Collectors.toList());
         } else {
             itemList = itemValueList.stream().map(itemValue -> {
                 final OutsideAirportTaxStrategy taxStrategy = new OutsideAirportTaxStrategy(itemValue);
-                return new Item(taxStrategy, taxStrategy.getItemValue());
+                return new Item(taxStrategy, itemValue);
             }).collect(Collectors.toList());
         }
         return describe(itemList);
@@ -44,6 +44,6 @@ public class ItemsCalculator {
     }
 
     private BigDecimal totalTaxes(List<Item> itemList) {
-        return itemList.stream().map(item -> item.getTaxStrategy().tax(item.getTaxStrategy().getItemValue())).reduce(BigDecimal.ZERO, BigDecimal::add);
+        return itemList.stream().map(item -> item.getTaxStrategy().tax(item.getItemValue())).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
