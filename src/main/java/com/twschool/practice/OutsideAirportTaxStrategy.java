@@ -5,6 +5,11 @@ import java.math.BigDecimal;
 public class OutsideAirportTaxStrategy extends TaxStrategy {
 
     @Override
+    protected boolean match(Store store, Passport passport) {
+        return !store.isInAirport();
+    }
+
+    @Override
     public BigDecimal localTax(ItemValue itemValue) {
         BigDecimal localTax = BigDecimal.ZERO;
         if (!itemValue.getCategory().isBookFoodAndMedicalCategory()) {
