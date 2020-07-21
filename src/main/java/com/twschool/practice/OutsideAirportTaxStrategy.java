@@ -21,10 +21,10 @@ public class OutsideAirportTaxStrategy extends TaxStrategy {
     }
     
     @Override
-    public BigDecimal importedTax() {
+    public BigDecimal importedTax(ItemValue itemValue) {
         BigDecimal localTax = BigDecimal.ZERO;
         if (itemValue.getFrom() == ItemFrom.IMPORTED) {
-            localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
+            localTax = this.itemValue.getUnitPrice().multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(this.itemValue.getAmount()));
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }

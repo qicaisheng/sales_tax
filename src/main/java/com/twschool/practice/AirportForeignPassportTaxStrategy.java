@@ -18,7 +18,7 @@ public class AirportForeignPassportTaxStrategy extends TaxStrategy {
     }
 
     @Override
-    public BigDecimal importedTax() {
+    public BigDecimal importedTax(ItemValue itemValue) {
         return new BigDecimal("0.00");
     }
     

@@ -20,7 +20,7 @@ public class AirportForeignPassportTaxStrategyTest {
     public void should_calculate_imported_tax_given_items() {
         AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy(new ItemValue(ItemCategory.BOOK, ItemFrom.IMPORTED, 1, new BigDecimal("12.49")));
 
-        BigDecimal tax = airportForeignPassportTaxStrategy.importedTax();
+        BigDecimal tax = airportForeignPassportTaxStrategy.importedTax(airportForeignPassportTaxStrategy.getItemValue());
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }

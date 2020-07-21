@@ -63,7 +63,7 @@ public class OutsideAirportTaxStrategyTest {
         final BigDecimal unitPrice = new BigDecimal("47.50");
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy(new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.IMPORTED, 1, unitPrice));
 
-        BigDecimal tax = item.importedTax();
+        BigDecimal tax = item.importedTax(item.getItemValue());
 
         Assert.assertEquals(new BigDecimal("2.38"), tax);
     }
@@ -83,7 +83,7 @@ public class OutsideAirportTaxStrategyTest {
         final BigDecimal unitPrice = new BigDecimal("47.50");
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy(new ItemValue(ItemCategory.BOTTLE_OF_PERFUME, ItemFrom.LOCAL, 1, unitPrice));
 
-        BigDecimal tax = item.importedTax();
+        BigDecimal tax = item.importedTax(item.getItemValue());
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
