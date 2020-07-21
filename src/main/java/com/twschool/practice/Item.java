@@ -6,7 +6,7 @@ public class Item {
     private final ItemValue itemValue;
     private final TaxStrategy taxStrategy;
 
-    public Item(TaxStrategy taxStrategy, ItemValue itemValue) {
+    public Item(ItemValue itemValue, TaxStrategy taxStrategy) {
         this.itemValue = itemValue;
         this.taxStrategy = taxStrategy;
     }

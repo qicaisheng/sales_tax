@@ -23,7 +23,7 @@ public class ItemsCalculator {
         } else {
             taxStrategy = new OutsideAirportTaxStrategy();
         }
-        List<Item> itemList = itemValueList.stream().map(itemValue -> new Item(taxStrategy, itemValue)).collect(Collectors.toList());
+        List<Item> itemList = itemValueList.stream().map(itemValue -> new Item(itemValue, taxStrategy)).collect(Collectors.toList());
         return describe(itemList);
     }
     
