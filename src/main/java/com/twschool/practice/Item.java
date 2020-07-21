@@ -21,7 +21,11 @@ public class Item {
 
     public BigDecimal totalPrice() {
         BigDecimal price = itemValue.getUnitPrice().multiply(BigDecimal.valueOf(itemValue.getAmount()));
-        return price.add(taxStrategy.tax(getItemValue()));
+        return price.add(tax());
+    }
+
+    private BigDecimal tax() {
+        return taxStrategy.tax(getItemValue());
     }
 
     public String describe() {
