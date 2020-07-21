@@ -21,6 +21,6 @@ public abstract class TaxStrategy {
     }
 
     public static List<TaxStrategy> getTaxStrategies() {
-        return Arrays.asList(new AirportForeignPassportTaxStrategy(), new OutsideAirportTaxStrategy());
+        return Arrays.asList(new AirportForeignPassportTaxStrategy(), new OutsideAirportTaxStrategy(), new AirportLocalPassportTaxStrategy());
     }
 }

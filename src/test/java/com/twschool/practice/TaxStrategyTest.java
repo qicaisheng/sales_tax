@@ -26,4 +26,15 @@ public class TaxStrategyTest {
 
         Assert.assertEquals(OutsideAirportTaxStrategy.class, taxStrategy.getClass());
     }
+
+    @Test
+    public void should_return_AirportLocalPassportTaxStrategy_given_store_not_in_airport() {
+        Store store = new Store(true);
+        Passport passport = new Passport("123456789012345");
+
+        TaxStrategy taxStrategy = TaxStrategy.selectTaxStrategy(store, passport);
+
+        Assert.assertEquals(AirportLocalPassportTaxStrategy.class, taxStrategy.getClass());
+    }
+
 }
