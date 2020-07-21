@@ -10,12 +10,12 @@ public abstract class TaxStrategy {
         this.itemValue = itemValue;
     }
 
-    public abstract BigDecimal localTax();
+    public abstract BigDecimal localTax(ItemValue itemValue);
 
     public abstract BigDecimal importedTax();
 
     public BigDecimal tax() {
-        return importedTax().add(localTax());
+        return importedTax().add(localTax(getItemValue()));
     }
 
     public ItemValue getItemValue() {

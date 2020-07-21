@@ -13,7 +13,7 @@ public class OutsideAirportTaxStrategyTest {
         final BigDecimal unitPrice = new BigDecimal("12.49");
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy(new ItemValue(ItemCategory.BOOK, ItemFrom.LOCAL, 1, unitPrice));
 
-        BigDecimal tax = item.localTax();
+        BigDecimal tax = item.localTax(item.getItemValue());
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
@@ -23,7 +23,7 @@ public class OutsideAirportTaxStrategyTest {
         final BigDecimal unitPrice = new BigDecimal("14.99");
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy(new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice));
 
-        BigDecimal tax = item.localTax();
+        BigDecimal tax = item.localTax(item.getItemValue());
 
         Assert.assertEquals(new BigDecimal("1.50"), tax);
     }
@@ -33,7 +33,7 @@ public class OutsideAirportTaxStrategyTest {
         final BigDecimal unitPrice = new BigDecimal("0.85");
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy(new ItemValue(ItemCategory.CHOCOLATE_BAR, ItemFrom.LOCAL, 1, unitPrice));
 
-        BigDecimal tax = item.localTax();
+        BigDecimal tax = item.localTax(item.getItemValue());
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
@@ -43,7 +43,7 @@ public class OutsideAirportTaxStrategyTest {
         final BigDecimal unitPrice = new BigDecimal("0.85");
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy(new ItemValue(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.LOCAL, 1, unitPrice));
 
-        BigDecimal tax = item.localTax();
+        BigDecimal tax = item.localTax(item.getItemValue());
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
@@ -53,7 +53,7 @@ public class OutsideAirportTaxStrategyTest {
         final BigDecimal unitPrice = new BigDecimal("9.75");
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy(new ItemValue(ItemCategory.PACKET_OF_HEADACHE_PILLS, ItemFrom.LOCAL, 1, unitPrice));
 
-        BigDecimal tax = item.localTax();
+        BigDecimal tax = item.localTax(item.getItemValue());
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
