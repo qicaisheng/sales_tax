@@ -4,13 +4,16 @@ import java.math.BigDecimal;
 
 public class AirportForeignPassportTaxStrategy extends TaxStrategy {
 
+    private ItemValue itemValue;
+
     public AirportForeignPassportTaxStrategy(ItemValue itemValue) {
         super(itemValue);
+        this.itemValue = itemValue;
     }
 
     @Override
     public BigDecimal localTax() {
-        BigDecimal localTax = getItemValue().getUnitPrice().multiply(new BigDecimal("0.10")).multiply(BigDecimal.valueOf(getItemValue().getAmount()));
+        BigDecimal localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.10")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
 
