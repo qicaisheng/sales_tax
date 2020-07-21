@@ -17,14 +17,14 @@ public class ItemsCalculator {
 
     public String describe() {
         boolean useAirportForeignPassportTaxStrategy = store.isInAirport() && passport.isForeignPassport();
-        TaxStrategy taxStrategy1;
+        TaxStrategy taxStrategy;
         if (useAirportForeignPassportTaxStrategy) {
-            taxStrategy1 = new AirportForeignPassportTaxStrategy();
+            taxStrategy = new AirportForeignPassportTaxStrategy();
         } else {
-            taxStrategy1 = new OutsideAirportTaxStrategy();
+            taxStrategy = new OutsideAirportTaxStrategy();
         }
-        List<Item> itemList1 = itemValueList.stream().map(itemValue -> new Item(taxStrategy1, itemValue)).collect(Collectors.toList());
-        return describe(itemList1);
+        List<Item> itemList = itemValueList.stream().map(itemValue -> new Item(taxStrategy, itemValue)).collect(Collectors.toList());
+        return describe(itemList);
     }
     
     public String describe(List<Item> itemList) {
