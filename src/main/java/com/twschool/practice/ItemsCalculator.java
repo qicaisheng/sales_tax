@@ -33,6 +33,6 @@ public class ItemsCalculator {
     }
 
     private BigDecimal totalTaxes(List<Item> itemList) {
-        return itemList.stream().map(item -> item.getTaxStrategy().tax(item.getItemValue())).reduce(BigDecimal.ZERO, BigDecimal::add);
+        return itemList.stream().map(Item::tax).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

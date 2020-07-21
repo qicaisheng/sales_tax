@@ -24,7 +24,7 @@ public class Item {
         return price.add(tax());
     }
 
-    private BigDecimal tax() {
+    public BigDecimal tax() {
         return taxStrategy.tax(getItemValue());
     }
 
