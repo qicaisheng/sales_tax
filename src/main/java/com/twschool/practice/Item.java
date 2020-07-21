@@ -12,7 +12,7 @@ public class Item {
     }
 
     public BigDecimal totalPrice() {
-        BigDecimal price = itemValue.getUnitPrice().multiply(BigDecimal.valueOf(itemValue.getAmount()));
+        BigDecimal price = itemValue.prices();
         return price.add(tax());
     }
 

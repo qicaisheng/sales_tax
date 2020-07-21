@@ -30,4 +30,8 @@ public class ItemValue {
     public BigDecimal getUnitPrice() {
         return unitPrice;
     }
+
+    public BigDecimal prices() {
+        return getUnitPrice().multiply(BigDecimal.valueOf(getAmount()));
+    }
 }
