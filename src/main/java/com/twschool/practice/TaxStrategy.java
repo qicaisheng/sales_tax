@@ -14,8 +14,8 @@ public abstract class TaxStrategy {
 
     public abstract BigDecimal importedTax(ItemValue itemValue);
 
-    public BigDecimal tax() {
-        return importedTax(getItemValue()).add(localTax(getItemValue()));
+    public BigDecimal tax(ItemValue itemValue) {
+        return importedTax(itemValue).add(localTax(itemValue));
     }
 
     public ItemValue getItemValue() {

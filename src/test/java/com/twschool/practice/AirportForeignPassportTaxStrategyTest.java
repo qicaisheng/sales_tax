@@ -32,7 +32,7 @@ public class AirportForeignPassportTaxStrategyTest {
         ItemValue itemValue = new ItemValue(ItemCategory.BOOK, ItemFrom.IMPORTED, 1, new BigDecimal("12.49"));
         AirportForeignPassportTaxStrategy airportForeignPassportTaxStrategy = new AirportForeignPassportTaxStrategy(itemValue);
 
-        BigDecimal tax = airportForeignPassportTaxStrategy.tax();
+        BigDecimal tax = airportForeignPassportTaxStrategy.tax(airportForeignPassportTaxStrategy.getItemValue());
 
         Assert.assertEquals(new BigDecimal("1.25"), tax);
     }
