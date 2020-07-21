@@ -14,7 +14,7 @@ public class OutsideAirportTaxStrategyTest {
         ItemValue itemValue = new ItemValue(ItemCategory.BOOK, ItemFrom.LOCAL, 1, unitPrice);
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy();
 
-        BigDecimal tax = item.localTax(itemValue);
+        BigDecimal tax = item.basicTax(itemValue);
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
@@ -25,7 +25,7 @@ public class OutsideAirportTaxStrategyTest {
         ItemValue itemValue = new ItemValue(ItemCategory.MUSIC_CD, ItemFrom.LOCAL, 1, unitPrice);
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy();
 
-        BigDecimal tax = item.localTax(itemValue);
+        BigDecimal tax = item.basicTax(itemValue);
 
         Assert.assertEquals(new BigDecimal("1.50"), tax);
     }
@@ -36,7 +36,7 @@ public class OutsideAirportTaxStrategyTest {
         ItemValue itemValue = new ItemValue(ItemCategory.CHOCOLATE_BAR, ItemFrom.LOCAL, 1, unitPrice);
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy();
 
-        BigDecimal tax = item.localTax(itemValue);
+        BigDecimal tax = item.basicTax(itemValue);
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
@@ -47,7 +47,7 @@ public class OutsideAirportTaxStrategyTest {
         ItemValue itemValue = new ItemValue(ItemCategory.BOX_OF_CHOCOLATE_BAR, ItemFrom.LOCAL, 1, unitPrice);
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy();
 
-        BigDecimal tax = item.localTax(itemValue);
+        BigDecimal tax = item.basicTax(itemValue);
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }
@@ -58,7 +58,7 @@ public class OutsideAirportTaxStrategyTest {
         ItemValue itemValue = new ItemValue(ItemCategory.PACKET_OF_HEADACHE_PILLS, ItemFrom.LOCAL, 1, unitPrice);
         OutsideAirportTaxStrategy item = new OutsideAirportTaxStrategy();
 
-        BigDecimal tax = item.localTax(itemValue);
+        BigDecimal tax = item.basicTax(itemValue);
 
         Assert.assertEquals(new BigDecimal("0.00"), tax);
     }

@@ -6,12 +6,12 @@ import java.util.List;
 
 public abstract class TaxStrategy {
     
-    public abstract BigDecimal localTax(ItemValue itemValue);
+    public abstract BigDecimal basicTax(ItemValue itemValue);
 
     public abstract BigDecimal importedTax(ItemValue itemValue);
 
     public BigDecimal tax(ItemValue itemValue) {
-        return importedTax(itemValue).add(localTax(itemValue));
+        return importedTax(itemValue).add(basicTax(itemValue));
     }
 
     protected abstract boolean match(Store store, Passport passport);

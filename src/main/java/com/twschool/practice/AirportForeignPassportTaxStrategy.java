@@ -12,7 +12,7 @@ public class AirportForeignPassportTaxStrategy extends TaxStrategy {
     }
 
     @Override
-    public BigDecimal localTax(ItemValue itemValue) {
+    public BigDecimal basicTax(ItemValue itemValue) {
         BigDecimal localTax = itemValue.getUnitPrice().multiply(BASIC_TAX_RATE).multiply(BigDecimal.valueOf(itemValue.getAmount()));
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }

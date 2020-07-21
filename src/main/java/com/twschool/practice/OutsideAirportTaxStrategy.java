@@ -13,7 +13,7 @@ public class OutsideAirportTaxStrategy extends TaxStrategy {
     }
 
     @Override
-    public BigDecimal localTax(ItemValue itemValue) {
+    public BigDecimal basicTax(ItemValue itemValue) {
         BigDecimal localTax = BigDecimal.ZERO;
         if (!itemValue.getCategory().isBookFoodAndMedicalCategory()) {
             localTax = itemValue.getUnitPrice().multiply(BASIC_TAX_RATE).multiply(BigDecimal.valueOf(itemValue.getAmount()));

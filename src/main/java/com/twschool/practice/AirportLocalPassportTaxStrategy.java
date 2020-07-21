@@ -12,8 +12,8 @@ public class AirportLocalPassportTaxStrategy extends TaxStrategy {
     }
     
     @Override
-    public BigDecimal localTax(ItemValue itemValue) {
-        return outsideAirportTaxStrategy.localTax(itemValue);
+    public BigDecimal basicTax(ItemValue itemValue) {
+        return outsideAirportTaxStrategy.basicTax(itemValue);
     }
 
     @Override
