@@ -1,4 +1,6 @@
-package com.twschool.practice;
+package com.twschool.practice.taxstrategy;
+
+import com.twschool.practice.*;
 
 import java.math.BigDecimal;
 

@@ -1,9 +1,11 @@
 package com.twschool.practice;
 
+import com.twschool.practice.taxstrategy.AirportForeignPassportTaxStrategy;
+import com.twschool.practice.taxstrategy.AirportLocalPassportTaxStrategy;
+import com.twschool.practice.taxstrategy.OutsideAirportTaxStrategy;
+import com.twschool.practice.taxstrategy.TaxStrategy;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class TaxStrategyTest {
 

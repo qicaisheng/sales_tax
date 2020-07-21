@@ -1,5 +1,6 @@
 package com.twschool.practice;
 
+import com.twschool.practice.taxstrategy.AirportForeignPassportTaxStrategy;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,8 @@
-package com.twschool.practice;
+package com.twschool.practice.taxstrategy;
+
+import com.twschool.practice.ItemValue;
+import com.twschool.practice.Passport;
+import com.twschool.practice.Store;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
