@@ -4,10 +4,6 @@ import java.math.BigDecimal;
 
 public class OutsideAirportTaxStrategy extends TaxStrategy {
 
-    public OutsideAirportTaxStrategy() {
-        super();
-    }
-
     @Override
     public BigDecimal localTax(ItemValue itemValue) {
         BigDecimal localTax = BigDecimal.ZERO;

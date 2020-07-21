@@ -3,11 +3,7 @@ package com.twschool.practice;
 import java.math.BigDecimal;
 
 public class AirportForeignPassportTaxStrategy extends TaxStrategy {
-
-    public AirportForeignPassportTaxStrategy() {
-        super();
-    }
-
+    
     @Override
     public BigDecimal localTax(ItemValue itemValue) {
         BigDecimal localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.10")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
