@@ -24,7 +24,7 @@ public class OutsideAirportTaxStrategy extends TaxStrategy {
     public BigDecimal importedTax(ItemValue itemValue) {
         BigDecimal localTax = BigDecimal.ZERO;
         if (itemValue.getFrom() == ItemFrom.IMPORTED) {
-            localTax = this.itemValue.getUnitPrice().multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(this.itemValue.getAmount()));
+            localTax = itemValue.getUnitPrice().multiply(new BigDecimal("0.05")).multiply(BigDecimal.valueOf(itemValue.getAmount()));
         }
         return localTax.setScale(2, BigDecimal.ROUND_UP);
     }
